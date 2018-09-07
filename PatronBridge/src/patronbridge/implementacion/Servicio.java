@@ -11,7 +11,7 @@ package patronbridge.implementacion;
  */
 public interface Servicio {
 
-    int prestarServicio();
+    void prestarServicio();
     
     void setPrecio(int precio);
     
