@@ -20,10 +20,10 @@ public class PlanPlus extends Plan{
 
       @Override
     public int facturar() {
-        System.out.println("Facturar Plan Plus");
+        System.out.println("Facturar Plan Plus con 10% de descuento");
         facturar = 0;
         servicios.forEach(s -> facturar += s.getPrecio());
-        return facturar;
+        return (int)(facturar-facturar*.1);
     }
     
 }
