@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import patronbridge.abstraccion.Plan;
 import patronbridge.abstraccion.PlanBasico;
 import patronbridge.abstraccion.PlanPlus;
-import patronbridge.implementacion.FacebookDatos;
+import patronbridge.implementacion.datos.FacebookDatos;
 import patronbridge.implementacion.SMS;
 import patronbridge.implementacion.Servicio;
 import patronbridge.implementacion.Telefonia;
-import patronbridge.implementacion.WhatsappDatos;
+import patronbridge.implementacion.datos.WhatsappDatos;
 
 /**
  *
@@ -26,17 +26,8 @@ public class TestPatronBridge {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
-        //        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        //        while (true) {
-        //            switch (Integer.valueOf(in.readLine().trim())) {
-        //                case 1:System.out.println("Crear ");
-        //
-        //                    break;
-        //                default:
-        //                    throw new AssertionError();
-        //            }
-        //        }
+    public static void main(String[] args) {
+  
         //servicios
         Servicio facebook = new FacebookDatos();
         Servicio whatsapp = new WhatsappDatos();
@@ -48,13 +39,16 @@ public class TestPatronBridge {
         sms.setPrecio(500);
         //plan basico
         Plan planBasico = new PlanBasico(new ArrayList<>());
+        planBasico.setNombrePlan("Plan basico para primeros clientes");
         planBasico.addServicio(telefonio);
         planBasico.addServicio(whatsapp);
         
         planBasico.mostrarListaServicios();
         planBasico.facturar();
+        System.out.println("------------------------------------------------------------------------------------------");
         //plan plus
         Plan planPlus=new PlanPlus(new ArrayList<>());
+        planPlus.setNombrePlan("Plan Plus para clientes antiguos");
         planPlus.addServicio(telefonio);
         planPlus.addServicio(facebook);
         planPlus.addServicio(sms);

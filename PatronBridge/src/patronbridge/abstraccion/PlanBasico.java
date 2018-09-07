@@ -20,9 +20,10 @@ public class PlanBasico extends Plan {
 
     @Override
     public int facturar() {
-        System.out.println("facturar plan basico");
+        System.out.print("facturar plan basico: ");
         facturar = 0;
         servicios.forEach(s -> facturar += s.getPrecio());
+        System.out.println("$" + facturar);
         return facturar;
     }
 

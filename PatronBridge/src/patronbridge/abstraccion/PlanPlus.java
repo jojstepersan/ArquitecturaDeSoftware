@@ -12,18 +12,20 @@ import patronbridge.implementacion.Servicio;
  *
  * @author SBUILDERS
  */
-public class PlanPlus extends Plan{
-    
+public class PlanPlus extends Plan {
+
     public PlanPlus(List<Servicio> servicio) {
         super(servicio);
     }
 
-      @Override
+    @Override
     public int facturar() {
-        System.out.println("Facturar Plan Plus con 10% de descuento");
+        System.out.print("Facturar Plan Plus con 10% de descuento: ");
         facturar = 0;
         servicios.forEach(s -> facturar += s.getPrecio());
-        return (int)(facturar-facturar*.1);
+        facturar = (int) (facturar - facturar * .1);
+        System.out.println("$" + facturar);
+        return facturar;
     }
-    
+
 }

@@ -15,8 +15,9 @@ import patronbridge.implementacion.Servicio;
 public abstract class Plan {
 
     protected List<Servicio> servicios;
-    protected String nombrePlan;
+    private String nombrePlan;
     protected int facturar;
+
     public Plan(List<Servicio> servicio) {
         this.servicios = servicio;
     }
@@ -30,8 +31,8 @@ public abstract class Plan {
     }
 
     public void mostrarListaServicios() {
-        System.out.printf("Nombre del plan: $s\nLISTA DE SERVICIOS: ", nombrePlan);
-        servicios.forEach(s -> System.out.println(s));
+        System.out.printf("Nombre del plan: %s\nLISTA DE SERVICIOS: \n", nombrePlan);
+        servicios.forEach(s -> s.prestarServicio());
     }
 
     public void addServicio(Servicio servicio) {
@@ -41,6 +42,14 @@ public abstract class Plan {
     public void removeServicio(Servicio servicio) {
         servicios.remove(servicio);
     }
-        
+
     public abstract int facturar();
+
+    public String getNombrePlan() {
+        return nombrePlan;
+    }
+
+    public void setNombrePlan(String nombrePlan) {
+        this.nombrePlan = nombrePlan;
+    }
 }
