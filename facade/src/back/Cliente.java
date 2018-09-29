@@ -9,6 +9,7 @@ import back.servicios.PQR;
 import back.servicios.Peticion;
 import back.servicios.Queja;
 import back.servicios.Reclamo;
+import back.ventas.Oportunidad;
 import back.ventas.Venta;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +20,14 @@ import java.util.List;
  */
 public class Cliente {
 
-    private List<PQR> pqrList;
-    private List<Venta> ventas;
+    private final List<PQR> pqrList;
+    private final List<Venta> ventas;
+    private final List<Oportunidad> oportunidades;
 
     public Cliente() {
         pqrList = new ArrayList<>();
-        ventas=new ArrayList<>();
+        ventas = new ArrayList<>();
+        oportunidades = new ArrayList<>();
     }
 
     public void crearPQR(String mesaje, String tipo) {
@@ -44,7 +47,13 @@ public class Cliente {
         }
     }
 
-    public void crearVenta(int valorVenta,String numeroVenta){
-    
+    public Venta crearVenta(int valorVenta, String numeroVenta) {
+        Venta venta = new Venta(valorVenta, numeroVenta);
+        ventas.add(venta);
+        return venta;
+    }
+
+    public void crearOportunidad(String oportunidad,int valorVenta,String numeroVenta) {
+        oportunidades.add(new Oportunidad(crearVenta(valorVenta, numeroVenta),oportunidad));
     }
 }

@@ -14,6 +14,12 @@ public class Venta {
     private int valorVenta;
     private String numeroVenta;
 
+    public Venta(int valorVenta, String numeroVenta) {
+        this.valorVenta = valorVenta;
+        this.numeroVenta = numeroVenta;
+    }
+
+    
     public int getValorVenta() {
         return valorVenta;
     }
