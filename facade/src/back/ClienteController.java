@@ -64,4 +64,12 @@ public class ClienteController {
         ventas.forEach(venta -> System.out.println(venta.getNumeroVenta() + " " + venta.getValorVenta()));
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
 }
