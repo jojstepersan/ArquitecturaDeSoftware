@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="fullArsenal" class="com.mikemenne.launchcode.strategy.Arsenal">
+        <constructor-arg name="bows" value="20"/>
+        <constructor-arg name="swords" value="20"/>
+    </bean>
+
+   <bean id="game1" class="com.mikemenne.launchcode.strategy.Game">
+       <constructor-arg name="arsenal" ref="fullArsenal"/>
+   </bean>
+
+
+
+    <bean id="emptyArsenal" class="com.mikemenne.launchcode.strategy.Arsenal">
+       <constructor-arg name="bows" value="0"/>
+        <constructor-arg name="swords" value="0"/>
+    </bean>
+</beans>
